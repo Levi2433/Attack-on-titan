@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useFadeIn, useBarAnimation } from "../hooks/useAnimations";
 
 export default function Annie({ navigate }) {
@@ -7,6 +7,18 @@ export default function Annie({ navigate }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const [portrait, setPortrait] = useState("anime");
+  
+    const portraits = {
+      anime: {
+        src: "https://i.ibb.co/4cvSNzV/a417ac0ff3fef542c9f3a3bba38e888c.jpg" ,
+        caption: "Анни Леонхарт — аниме-версия ",
+      },
+      manga: {
+        src: "https://i.ibb.co/HDFkkSSL/Annie-Leonhart-character-image-29.webp",
+        caption: "Анни Леонхарт — оригинал манги Исаямы ",
+      },
+    };
 
   return (
     <>
@@ -17,12 +29,48 @@ export default function Annie({ navigate }) {
         <div className="container">
           <div className="char-portrait fade-in-up">
             <img
-              src="https://i.ibb.co/vvJ081jt/a417ac0ff3fef542c9f3a3bba38e888c.jpg"
+              src={portraits[portrait].src}
               alt="Анни Леонхарт"
             />
             <p className="portrait-caption">
               Анни Леонхарт — Воин Марлии · Женский Титан
             </p>
+            <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.75rem", justifyContent: "center" }}>
+              <button
+                onClick={() => setPortrait("anime")}
+                style={{
+                  padding: "0.4rem 1rem",
+                  fontSize: "0.78rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.06em",
+                  border: `2px solid ${portrait === "anime" ? "#c0392b" : "rgba(255,255,255,0.15)"}`,
+                  background: portrait === "anime" ? "rgba(192,57,43,0.18)" : "transparent",
+                  color: portrait === "anime" ? "#e74c3c" : "rgba(255,255,255,0.5)",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                }}
+              >
+                🎬 АНИМЕ
+              </button>
+              <button
+                onClick={() => setPortrait("manga")}
+                style={{
+                  padding: "0.4rem 1rem",
+                  fontSize: "0.78rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.06em",
+                  border: `2px solid ${portrait === "manga" ? "#8b0000" : "rgba(255,255,255,0.15)"}`,
+                  background: portrait === "manga" ? "rgba(139,0,0,0.18)" : "transparent",
+                  color: portrait === "manga" ? "#c0392b" : "rgba(255,255,255,0.5)",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                }}
+              >
+                📖 МАНГА
+              </button>
+            </div>  
           </div>
           <div className="char-intro fade-in-up delay-1">
             <p className="breadcrumb">

@@ -21,12 +21,18 @@ import imirFritzImg from "../assets/img/Ymir_Fritz_29_character_image.webp";
 import imirImg      from "../assets/img/Ymir_29_character_image.webp";
 import hammerImg    from "../assets/img/titan2.jpg";
 import flock        from '../assets/img/Floch_Forster_29_character_image_291.webp'
+import historiaimg    from "../assets/img/Historia_Reiss.webp";
+import grishaImg    from "../assets/img/Grisha_Jaeger_29_character_image_29.webp" 
+import kennyImg    from "../assets/img/Kenny_Ackermann_29_character_image_29.webp" 
+import falkoImg    from "../assets/img/Falco_Grice_29_character_image_29.webp" 
+import gabiImg     from "../assets/img/Gabi_Braun_29_character_image_2.webp"
+
 
 const characters = [
   { href: "eren",     img: erenImg,      name: "Эрен Йегер",        role: "Разведкорпус · Носитель Атакующего Титана",                          tags: ["survey", "shifter"] },
-  { href: "mikasa",   img: mikasaImg,    name: "Микаса Аккерман",   role: "Разведкорпус · Лучший солдат выпуска",                               tags: ["survey"] },
+  { href: "mikasa",   img: mikasaImg,    name: "Микаса Аккерман",   role: "Разведкорпус · Лучший солдат выпуска",                               tags: ["survey", "akkerman"] },
   { href: "armin",    img: arminImg,     name: "Армин Арлерт",      role: "Разведкорпус · Стратег",                                             tags: ["survey", "commander", "shifter"] },
-  { href: "levi",     img: leviImg,      name: "Леви Аккерман",     role: "Разведкорпус · Капитан",                                             tags: ["survey"] },
+  { href: "levi",     img: leviImg,      name: "Леви Аккерман",     role: "Разведкорпус · Капитан",                                             tags: ["survey", "akkerman"] },
   { href: "erwin",    img: erwinImg,     name: "Эрвин Смит",        role: "Разведкорпус · Командующий",                                         tags: ["survey", "commander"] },
   { href: "hange",    img: hangeImg,     name: "Хандзи Зоэ",        role: "Разведкорпус · Исследователь / Командующий",                         tags: ["survey", "commander"] },
   { href: "jean",     img: jeanImg,      name: "Жан Кирштейн",      role: "Разведкорпус · Умный опытный солдат",                                tags: ["survey"] },
@@ -38,10 +44,15 @@ const characters = [
   { href: "zik",      img: zikImg,       name: "Зик Йегер",         role: "Воин Марлии · Звероподобный Титан",                                  tags: ["marley", "commander", "shifter"] },
   { href: "pik",      img: pikImg,       name: "Пик Фингер",        role: "Воин Марлии · Повозочный Титан",                                     tags: ["marley", "shifter"] },
   { href: "porko",    img: porkoImg,     name: "Порко Гальярд",     role: "Воин Марлии · Носитель Зубастого Титана",                            tags: ["marley", "shifter"] },
-  { href: "imir",     img: imirFritzImg, name: "Имир Фриц",         role: "Основательница рода · Мать Титанов · Пленница Путей",                tags: ["survey", "marley", "shifter"] },
+  { href: "imir",     img: imirFritzImg, name: "Имир Фриц",         role: "Основательница рода · Мать Титанов · Пленница Путей",                tags: [ "shifter"] },
   { href: "imer",     img: imirImg,      name: "Имир",              role: "Имир — Кадет 104-го корпуса · Зубастый Титан",                       tags: ["survey", "marley", "shifter"] },
-  { href: "hummer",   img: hammerImg,    name: "Титан Молот Войны", role: "Оружие семьи Тайбер · Мастер структурного созидания",                tags: ["survey", "marley", "shifter"] },
+  { href: "hummer",   img: hammerImg,    name: "Титан Молот Войны", role: "Оружие семьи Тайбер · Мастер структурного созидания",                tags: [ "marley", "shifter"] },
   { href: "flock",     img: flock,      name: "Флок",     role: "Разведкорпус · Солдат",                                             tags: ["survey"] },
+  { href: "historia",     img: historiaimg,      name: "Хистория",        role: "Разведкорпус · Королева",                          tags: ["survey",] },
+  { href: "grisha",     img: grishaImg,      name: "Гриша Йегер",        role: "Отец Эрена · Носитель Атакующего Титана",                          tags: ["shifter"] },
+  { href: "kenny",     img: kennyImg,      name: "Кенни Аккерман",        role: "Отец Эрена · Носитель Атакующего Титана",                     tags: [   "akkerman"]     },
+  { href: "falko",     img: falkoImg,      name: "Фалько",        role: "Марли · Носитель Зубастого Титана",                          tags: ["marley", "shifter"] },
+  { href: "gabi",     img: gabiImg,      name: "Габи",        role: "Кандидат-Воин → Воин Марлии",                          tags: ["marley" ] },
 ];
 
 const filters = [
@@ -50,6 +61,7 @@ const filters = [
   { label: "Командиры",    value: "commander" },
   { label: "Титаны",       value: "shifter" },
   { label: "Марли",        value: "marley" },
+  { label: "Акерманы",        value: "akkerman" },
 ];
 
 export default function Home({ navigate }) {

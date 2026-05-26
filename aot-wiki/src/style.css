@@ -52,45 +52,67 @@ body {
 /* ===========================
    NAVIGATION
    =========================== */
-.site-header {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(13,13,13,0.88);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(12px);
-}
-.nav {
-  max-width: 1200px; margin: 0 auto;
-  padding: 0 clamp(16px,5vw,60px);
-  height: 64px;
-  display: flex; align-items: center; justify-content: space-between;
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,13,13,0.88);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+  }
+  .nav {
+    max-width: 1220px; margin: 0 auto;
+    padding: 0 clamp(16px,5vw,60px);
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    overflow: hidden;
+    gap: 40px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.1rem; font-weight: 700; letter-spacing: 0.08em;
+    color: var(--text); text-decoration: none;
+    display: flex; align-items: center; gap: 10px;
+    transition: color 0.2s; cursor: pointer;
+  }
+  .logo-wings { color: var(--red); font-size: 1.3rem; }
+  .nav-logo .accent { color: var(--red); }
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 29px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;      /* yoniga scroll */
+  white-space: nowrap;
+  flex: 1;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  max-width: 100%;
 }
 
-.nav-logo {
-  font-family: var(--font-display);
-  font-size: 1.1rem; font-weight: 700; letter-spacing: 0.08em;
-  color: var(--text); text-decoration: none;
-  display: flex; align-items: center; gap: 10px;
-  transition: color 0.2s; cursor: pointer;
+.nav-links::-webkit-scrollbar {
+  display: none; /* Chrome */
 }
-.logo-wings { color: var(--red); font-size: 1.3rem; }
-.nav-logo .accent { color: var(--red); }
-.nav-links { list-style: none; display: flex; gap: 32px; }
-.nav-links a {
-  font-family: var(--font-display); font-size: 0.60rem;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--text-dim); text-decoration: none;
-  transition: color 0.2s;
-  position: relative; padding-bottom: 4px; cursor: pointer;
+
+.nav-links li {
+  flex-shrink: 0;
 }
-.nav-links a::after {
-  content: ''; position: absolute; bottom: 0; left: 0;
-  width: 0; height: 1px; background: var(--red);
-  transition: width 0.3s ease;
-}
-.nav-links a:hover,
-.nav-links a.active { color: var(--text); }
-.nav-links a:hover::after,
-.nav-links a.active::after { width: 100%; }
+  .nav-links a {
+    font-family: var(--font-display); font-size: 0.60rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-dim); text-decoration: none;
+    transition: color 0.2s;
+    position: relative; padding-bottom: 4px; cursor: pointer;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 1px; background: var(--red);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--text); }
+  .nav-links a:hover::after,
+  .nav-links a.active::after { width: 100%; }
 
 /* ===========================
    HERO
@@ -237,8 +259,8 @@ section { padding: 100px 0; }
    =========================== */
 .char-page-header { padding-top: 120px; padding-bottom: 40px; background: linear-gradient(180deg, #1c0a0a 0%, var(--bg) 100%); border-bottom: 1px solid var(--border); }
 .char-page-header .container { display: flex; gap: 48px; align-items: flex-start; }
-.char-portrait { flex-shrink: 0; width: 260px; }
-.char-portrait img { width: 100%; height: 340px; object-fit: cover; object-position: top; border: 1px solid var(--border2); filter: grayscale(20%) contrast(1.05); }
+.char-portrait { flex-shrink: 0; width: 290px; }
+.char-portrait img { width: 290px; height: 400px; object-fit: cover; object-position: top; border: 1px solid var(--border2); filter: grayscale(20%) contrast(1.05); }
 .portrait-caption { font-size: 0.72rem; color: var(--text-faint); text-align: center; margin-top: 8px; letter-spacing: 0.06em; }
 .char-intro { flex: 1; }
 .char-intro .breadcrumb { font-family: var(--font-display); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 16px; }
@@ -284,8 +306,8 @@ section { padding: 100px 0; }
 .char-counter { font-family: var(--font-display); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 20px; }
 
 /* ARTICLE IMG BANNER */
-.article-img-banner { margin: 18px 0 22px; position: relative; overflow: hidden; border: 1px solid var(--border2); }
-.article-img-banner img { width: 100%; height: 300px; object-fit: cover; object-position: top center; display: block; filter: grayscale(25%) contrast(1.1); }
+.article-img-banner { margin: 18px  22px; position: relative; overflow: hidden; border: 1px solid var(--border2); }
+.article-img-banner img { width: 100%; height: 400px; object-fit: cover; object-position: top center; display: block; filter: grayscale(25%) contrast(1.1); }
 .article-img-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 16px; background: linear-gradient(0deg, rgba(10,5,5,.96) 0%, transparent 100%); font-family: var(--font-display); font-size: .7rem; letter-spacing: .1em; color: var(--text-faint); }
 
 /* ===========================
@@ -637,18 +659,18 @@ section { padding: 100px 0; }
 .mil-commanders-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 0 0 24px; }
 .mil-commander-card { background: var(--bg2); border: 1px solid var(--border); padding: 18px 16px; position: relative; overflow: hidden; transition: border-color 0.3s, transform 0.3s; }
 .mil-commander-card:hover { border-color: var(--red-dark); transform: translateY(-2px); }
-.mil-cmd-num  { font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: 6px; background: rgba(192,57,43,0.12); padding: 2px 8px; width: fit-content; }
-.mil-cmd-name { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: var(--text); display: block; margin-bottom: 8px; letter-spacing: 0.04em; }
-.mil-cmd-info { font-size: 0.82rem; color: var(--text-dim); line-height: 1.65; margin: 0; }
+.mil-cmd-num  { font-family: var(--font-display); font-size: 1rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: 6px; background: rgba(192,57,43,0.12); padding: 2px 8px; width: fit-content; }
+.mil-cmd-name { font-family: var(--font-display); font-size:1rem; font-weight: 700; color: var(--text); display: block; margin-bottom: 8px; letter-spacing: 0.04em; }
+.mil-cmd-info { font-size: 0.92rem; color: var(--text-dim); line-height: 1.65; margin: 0; }
 
 .mil-members-list { display: flex; flex-direction: column; gap: 0; margin: 0 0 24px; border: 1px solid var(--border); }
 .mil-member-row { padding: 16px 18px; border-bottom: 1px solid var(--border); transition: background 0.2s; }
 .mil-member-row:last-child { border-bottom: none; }
 .mil-member-row:hover { background: var(--bg2); }
-.mil-member-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; flex-wrap: wrap; }
+.mil-member-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
 .mil-member-name  { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--text); letter-spacing: 0.04em; }
 .mil-member-title { font-size: 0.72rem; color: var(--red-light); letter-spacing: 0.05em; }
-.mil-member-desc  { font-size: 0.83rem; color: var(--text-dim); line-height: 1.65; margin: 0; }
+.mil-member-desc  { font-size: 0. 83rem; color: var(--text-dim); line-height: 1.65; margin: 0; }
 
 .mil-battles-list { display: flex; flex-direction: column; gap: 10px; margin: 0 0 24px; }
 .mil-battle-card { display: grid; grid-template-columns: 120px 1fr; gap: 0; border: 1px solid var(--border); overflow: hidden; transition: border-color 0.3s; }
@@ -766,7 +788,22 @@ section { padding: 100px 0; }
   .seasons-grid { grid-template-columns: 1fr 1fr; }
   .ep-cards-grid { grid-template-columns: 1fr; }
 }
-
+@media (max-width: 768px) {
+  .nav { padding: 0 12px; gap: 8px; }
+  .nav-logo { font-size: 0.95rem; flex-shrink: 0; white-space: nowrap; }
+  .nav-links {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 16px;
+    padding: 0 2px;
+    flex-shrink: 1;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links li { flex-shrink: 0; }
+  .nav-links a { font-size: 0.55rem; white-space: nowrap; }
+}
 @media (max-width: 600px) {
   .nav { padding: 0 12px; gap: 8px; }
   .nav-logo { font-size: 0.95rem; flex-shrink: 0; white-space: nowrap; }
@@ -795,7 +832,10 @@ section { padding: 100px 0; }
   .author-quote-block { padding: 32px 16px 20px 20px; }
   .author-quote-label { left: 16px; font-size: 0.55rem; }
 }
-
+.fade-in-up {
+  opacity: 1 !important;
+  transform: none !important;
+}
 @media (max-width: 480px) {
   .seasons-grid { grid-template-columns: 1fr; }
   .st-other-grid { grid-template-columns: 1fr; }
@@ -807,4 +847,708 @@ section { padding: 100px 0; }
 
 @media (max-width: 400px) {
   .cards-grid { grid-template-columns: 1fr; }
+}
+/* ═══════════════════════════════════════════════════════════════
+   Titans.jsx — component styles
+   Import: import "./Titans.css"; — Titans.jsx ichida
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Filter / Tab bar ─────────────────────────────────────────── */
+.titans-tab-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  margin-top: 20px;
+}
+
+.titans-tab-bar .filter-btn {
+  font-size: 0.7rem;
+}
+
+/* ── Nature specs grid (bio cards) ───────────────────────────── */
+.titans-bio-specs {
+  margin-top: 20px;
+}
+
+/* ── Single titan card wrapper ───────────────────────────────── */
+.titan-card {
+  border: 1px solid var(--border2);
+  background: var(--bg2);
+  margin-bottom: 40px;
+  overflow: hidden;
+  /* border-left color is set via CSS variable injected inline on the element */
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+
+/* ── Card header (image + meta) ──────────────────────────────── */
+.titan-card__header {
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  align-items: start;
+  /* background is set via inline style because it uses a dynamic color variable */
+}
+
+@media (max-width: 640px) {
+  .titan-card__header {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+}
+
+/* ── Card image wrapper ──────────────────────────────────────── */
+.titan-card__img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.titan-card__img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  filter: grayscale(15%) contrast(1.1);
+}
+
+/* ── Badge overlay on image ──────────────────────────────────── */
+.titan-card__badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 10px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  /* color is dynamic — stays inline */
+}
+
+/* ── Card meta (right side of header) ───────────────────────── */
+.titan-card__meta {
+  /* no special layout, children handle themselves */
+}
+
+.titan-card__tags {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.titan-card__tag-pill {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  /* color, background, border are dynamic — stay inline */
+}
+
+.titan-card__name-jp {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--text-faint);
+  letter-spacing: 0.08em;
+}
+
+.titan-card__name-ru {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.titan-card__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.titan-card__stat {
+  font-size: 0.81rem;
+  color: var(--text-faint);
+}
+
+.titan-card__stat strong {
+  color: var(--text-dim);
+}
+
+.titan-card__anime-note {
+  font-size: 0.8rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+  /* color is dynamic — stays inline */
+}
+
+.titan-card__desc {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Card body ───────────────────────────────────────────────── */
+.titan-card__body {
+  padding: 24px 28px;
+}
+
+@media (max-width: 640px) {
+  .titan-card__body {
+    padding: 16px;
+  }
+}
+
+/* ── Two-column grid inside body ─────────────────────────────── */
+.titan-card__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 700px) {
+  .titan-card__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Section label inside card (powers / weakness / etc.) ────── */
+.titan-card__section-label {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  padding-bottom: 6px;
+}
+
+.titan-card__section-label--power {
+  /* color and border-color stay inline — dynamic per titan */
+}
+
+.titan-card__section-label--weakness {
+  color: var(--red);
+  border-bottom-color: rgba(192, 57, 43, 0.3);
+}
+
+.titan-card__section-label--kills {
+  color: var(--text-faint);
+  border-bottom-color: var(--border);
+}
+
+.titan-card__section-label--defeated {
+  color: var(--text-faint);
+  border-bottom-color: var(--border);
+}
+
+/* ── Power list item ─────────────────────────────────────────── */
+.titan-card__power-item {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.titan-card__power-dot {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+  /* color is dynamic — stays inline */
+}
+
+/* ── Weakness / kills / defeated text ────────────────────────── */
+.titan-card__text {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.titan-card__text--last {
+  margin-bottom: 0;
+}
+
+/* ── Facts box ───────────────────────────────────────────────── */
+.titan-card__facts {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 16px 20px;
+}
+
+.titan-card__facts-label {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  /* color is dynamic — stays inline */
+}
+
+.titan-card__fact-item {
+  display: flex;
+  gap: 10px;
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.titan-card__fact-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.titan-card__fact-arrow {
+  font-size: 0.7rem;
+  flex-shrink: 0;
+  margin-top: 3px;
+  /* color is dynamic — stays inline */
+}
+
+/* ── Curse specs (Проклятие Яльмира) ────────────────────────── */
+.titans-curse-specs {
+  /* uses .mil-upm-specs from global — no extra rules needed */
+}
+.portrait-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  justify-content: center;
+}
+
+.portrait-btn {
+  padding: 0.4rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+
+  border: 2px solid rgba(255,255,255,0.15);
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* ACTIVE STATES */
+
+.portrait-btn.active-anime {
+  border-color: #c0392b;
+  background: rgba(192,57,43,0.18);
+  color: #e74c3c;
+}
+
+.portrait-btn.active-manga {
+  border-color: #8b0000;
+  background: rgba(139,0,0,0.18);
+  color: #c0392b;
+}
+/* ===========================
+   RANOBE PAGE STYLES
+   =========================== */
+
+/* ── Novel block ── */
+.rn-novel-block {
+  border-bottom: 1px solid var(--border2);
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+}
+.rn-novel-block:last-child { border-bottom: none; }
+
+.rn-subtitle-line {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin: -8px 0 16px;
+  letter-spacing: 0.03em;
+}
+
+/* ── Tags ── */
+.rn-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+.rn-tag {
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border: 1px solid var(--border2);
+  color: var(--text-dim);
+  background: var(--bg2);
+}
+.rn-rating {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--red);
+  margin-left: auto;
+  border: 1px solid var(--red-dark);
+  padding: 3px 12px;
+}
+
+/* ── Main grid: cover + synopsis ── */
+.rn-main-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  margin-bottom: 28px;
+}
+
+.rn-cover-wrap {
+  flex-shrink: 0;
+}
+.rn-cover {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--border2);
+  filter: sepia(10%) contrast(1.05);
+  margin-bottom: 12px;
+  transition: filter 0.4s;
+}
+.rn-cover:hover { filter: sepia(0%) contrast(1.1); }
+
+.rn-cover-meta {
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.rn-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.75rem;
+  gap: 8px;
+}
+.rn-meta-row:last-child { border-bottom: none; }
+.rn-meta-row span:first-child { color: var(--text-faint); flex-shrink: 0; }
+.rn-meta-row span:last-child { color: var(--text-dim); text-align: right; font-size: 0.72rem; }
+.rn-meta-connection span:last-child { color: var(--red-light); }
+
+/* ── Synopsis ── */
+.rn-synopsis-label {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.rn-synopsis-text p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  margin-bottom: 12px;
+}
+.rn-synopsis-text p:last-child { margin-bottom: 0; }
+.rn-synopsis-text strong { color: var(--text); }
+.rn-synopsis-text em { color: var(--gold-light); font-style: italic; }
+
+/* ── Details grid ── */
+.rn-details-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.rn-detail-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--red-dark);
+  padding: 14px 14px;
+  transition: border-color 0.3s;
+}
+.rn-detail-card:hover { border-left-color: var(--red); }
+.rn-detail-icon {
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 6px;
+}
+.rn-detail-label {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: block;
+  margin-bottom: 6px;
+}
+.rn-detail-text {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── Lost Girls deep dive ── */
+.rn-deep-dive {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-left: 3px solid var(--red);
+  padding: 28px;
+  margin-bottom: 28px;
+}
+.rn-deep-title {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.rn-deep-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.rn-deep-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+.rn-deep-annie { border-top: 2px solid #555; }
+.rn-deep-mikasa { border-top: 2px solid var(--red-dark); }
+
+.rn-deep-card-title {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+.rn-deep-text p {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+.rn-deep-text p:last-child { margin-bottom: 0; }
+.rn-deep-text strong { color: var(--text); }
+.rn-deep-text em { color: var(--gold-light); font-style: italic; }
+
+/* ── Isayama block ── */
+.rn-isayama-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: rgba(192,57,43,0.06);
+  border: 1px solid var(--border2);
+  border-left: 3px solid var(--gold-light);
+  padding: 18px 20px;
+  margin-bottom: 24px;
+}
+.rn-isayama-icon {
+  font-size: 1.4rem;
+  color: var(--gold-light);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.rn-isayama-label {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+.rn-isayama-text {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin: 0;
+  font-style: italic;
+}
+
+/* ── Facts title ── */
+.rn-facts-title {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Compare table ── */
+.rn-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border2);
+  font-size: 0.85rem;
+}
+.rn-compare-table thead tr { background: rgba(192,57,43,0.1); }
+.rn-compare-table th {
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border2);
+  white-space: nowrap;
+}
+.rn-compare-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dim);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.rn-compare-table td:first-child { color: var(--text); }
+.rn-compare-table tr:hover td { background: rgba(192,57,43,0.04); }
+
+/* ── Start guide ── */
+.rn-start-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.rn-start-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 22px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.rn-start-card:hover { border-color: var(--red-dark); }
+.rn-start-num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: rgba(192,57,43,0.1);
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  line-height: 1;
+  pointer-events: none;
+}
+.rn-start-title {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+.rn-start-text {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── fade animation ── */
+@keyframes rnFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.rn-fade { opacity: 0; }
+.rn-fade.visible { animation: rnFadeUp 0.6s ease forwards; }
+
+/* ===========================
+   NAVBAR SCROLL INDICATOR
+   =========================== */
+.nav-scroll-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  margin-left: 24px;
+}
+
+.nav-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: opacity 0.2s;
+}
+.nav-fade-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(13,13,13,0.95) 40%, transparent);
+}
+.nav-fade-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(13,13,13,0.95) 40%, transparent);
+}
+.nav-arrow {
+  font-size: 1.2rem;
+  color: var(--red);
+  font-weight: 700;
+  line-height: 1;
+  animation: arrowPulse 1.6s ease-in-out infinite;
+  user-select: none;
+}
+.nav-fade-left .nav-arrow { margin-right: 8px; }
+.nav-fade-right .nav-arrow { margin-left: 8px; }
+
+@keyframes arrowPulse {
+  0%, 100% { opacity: 0.5; transform: translateX(0); }
+  50%       { opacity: 1;   transform: translateX(3px); }
+}
+.nav-fade-left .nav-arrow {
+  animation-name: arrowPulseLeft;
+}
+@keyframes arrowPulseLeft {
+  0%, 100% { opacity: 0.5; transform: translateX(0); }
+  50%       { opacity: 1;   transform: translateX(-3px); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .rn-main-grid { grid-template-columns: 1fr; }
+  .rn-cover-wrap { display: grid; grid-template-columns: 160px 1fr; gap: 16px; }
+  .rn-cover { margin-bottom: 0; }
+  .rn-details-grid { grid-template-columns: repeat(2, 1fr); }
+  .rn-deep-grid { grid-template-columns: 1fr; }
+  .rn-start-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .rn-cover-wrap { grid-template-columns: 1fr; }
+  .rn-details-grid { grid-template-columns: 1fr; }
+  .rn-tags { gap: 6px; }
+  .rn-rating { margin-left: 0; }
+  .nav-scroll-wrap { margin-left: 12px; }
 }

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useFadeIn, useBarAnimation } from "../hooks/useAnimations";
 
 export default function Erwin({ navigate }) {
@@ -7,6 +7,18 @@ export default function Erwin({ navigate }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+   const [portrait, setPortrait] = useState("anime");
+
+  const portraits = {
+    anime: {
+      src: "https://i.ibb.co/20VXqsxP/Erwin-Smith-29-character-image-29.webp",
+      caption: "Микаса Аккерман — аниме-версия ",
+    },
+    manga: {
+      src: "https://i.ibb.co/1Jmq9c61/Mikasa-Ackerman-character-image-850.webp",
+      caption: "Микаса Аккерман — оригинал манги Исаямы ",
+    },
+  };
   return (
     <>
       <div className="noise-overlay" />
@@ -15,7 +27,7 @@ export default function Erwin({ navigate }) {
         <div className="container">
           <div className="char-portrait fade-in-up">
             <img
-              src="https://i.ibb.co/20VXqsxP/Erwin-Smith-29-character-image-29.webp"
+              src={portraits[portrait].src}
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src =
@@ -24,8 +36,27 @@ export default function Erwin({ navigate }) {
               alt="Эрвин Смит"
             />
             <p className="portrait-caption">
-              Эрвин Смит — 13-й Командующий Разведкорпуса
+               <p className="portrait-caption">{portraits[portrait].caption}</p>
             </p>
+            <div className="portrait-buttons">
+              <button
+                className={`portrait-btn ${
+                  portrait === "anime" ? "active-anime" : ""
+                }`}
+                onClick={() => setPortrait("anime")}
+              >
+                🎬 АНИМЕ
+              </button>
+
+              <button
+                className={`portrait-btn ${
+                  portrait === "manga" ? "active-manga" : ""
+                }`}
+                onClick={() => setPortrait("manga")}
+              >
+                📖 МАНГА
+              </button>
+            </div>
           </div>
           <div className="char-intro fade-in-up delay-1">
             <p className="breadcrumb">

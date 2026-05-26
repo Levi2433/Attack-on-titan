@@ -135,7 +135,7 @@ export default function Author({ navigate }) {
         <div className="container">
           <div className="char-portrait fade-in-up">
             <img
-              src="https://i.ibb.co/3m9Tq3yB/FIBD2023-Hajime-Isayama-01.jpg"
+              src="https://i.ibb.co/Zpjs3GmQ/FIBD2023-Hajime-Isayama-01.jpg"
               onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x500/1a0a0a/c0392b?text=Isayama"; }}
               alt="Хадзимэ Исаяма"
             />

@@ -6,9 +6,11 @@ export default function Navbar({ currentPage, navigate }) {
       const h = document.querySelector(".site-header");
       if (!h) return;
       h.style.boxShadow = window.scrollY > 50 ? "0 4px 30px rgba(0,0,0,0.7)" : "";
-    };
+    }
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+
+    
   }, []);
 
   const links = [
@@ -21,7 +23,14 @@ export default function Navbar({ currentPage, navigate }) {
     { label: "Студиа", page: "studio" },
     { label: "Автор", page: "author" },
     { label: "Парадиз", page: "paradis" },
-    { label: "Марли", page: "marli" }
+    { label: "Марли", page: "marli" },
+    { label: "Оружие", page: "weapon" },
+    { label: "Титаны", page: "titan" },
+    { label: "Акерманы", page: "akerman" },
+    { label: "Манга и Аниме", page: "mangavsanime" },
+    { label: "Йегеристы", page: "yegerist" },
+    { label: "Игры", page: "games" },
+    { label: "Ранобэ", page: "ranobe" }
     
   ];
 

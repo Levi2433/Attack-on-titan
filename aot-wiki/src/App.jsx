@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 
 // Pages
 import Author from '../src/pages/Author'
+import Yegerist from "../src/pages/Yegerist"
 import Home     from "./pages/Home";
 import Annie    from "./pages/Annie";
 import Armin    from "./pages/Armin";
@@ -32,6 +33,18 @@ import Studio   from "../src/pages/Studio"
 import Flock    from "../src/pages/Flock" 
 import Paradis  from "../src/pages/Paradis" 
 import Marli    from "../src/pages/Marli"
+import Weapon    from "../src/pages/Weapon"
+import Titan    from "../src/pages/Titan"
+import Historia     from "./pages/Historia";
+import Grisha     from "./pages/Grisha";
+import Akerman     from "./pages/Akerman";
+import Kenny     from "./pages/Kenny";
+import Falko     from "./pages/Falko";
+import Gabi from "../src/pages/Gabi"
+import MangavsAnime from "../src/pages/MangavsAnime"
+import Games from "../src/pages/Game"
+import Ranobe from "../src/pages/Ranobe"
+
 
 // Season pages
 import Season1 from "./pages/seasons/Season1";
@@ -121,6 +134,18 @@ export default function App() {
       case "manga":      return <Manga      navigate={navigate} />;
       case "studio":     return <Studio     navigate={navigate} />;
       case "flock":     return <Flock     navigate={navigate} />;
+      case "weapon":     return <Weapon     navigate={navigate} />;
+      case "titan":     return <Titan     navigate={navigate} />;
+      case "historia":      return <Historia      navigate={navigate} />;
+      case "grisha":      return <Grisha      navigate={navigate} />;
+      case "akerman":      return <Akerman      navigate={navigate} />;
+      case "kenny":      return <Kenny      navigate={navigate} />;
+      case "falko":      return <Falko      navigate={navigate} />;
+      case "gabi":      return <Gabi      navigate={navigate} />;
+      case "yegerist":      return <Yegerist      navigate={navigate} />;
+      case "mangavsanime":      return <MangavsAnime      navigate={navigate} />;
+      case "games":      return <Games      navigate={navigate} />;
+      case "ranobe":      return <Ranobe      navigate={navigate} />;
       // remaining placeholders
       default:
         const names = {
